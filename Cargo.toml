@@ -1,0 +1,8 @@
+[package]
+name = "estrelas"
+version = "0.1.0"
+authors = ["unite"]
+
+[dependencies]
+lua = "*"
+num = "*"
