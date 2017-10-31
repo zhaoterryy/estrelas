@@ -54,11 +54,11 @@ impl Entity {
 }
 
 pub(in GameFramework) trait Component {
-	fn Name(&self) -> &'static str;
-	fn GetGUID(&self) -> usize;
-	fn GetComponentID(&self) -> FLAG_Components;
-	fn GetAttachedEntityID(&self) -> usize;
-	fn GetAsAny(&self) -> &Any;
+	fn name(&self) -> &'static str;
+	fn getGUID(&self) -> usize;
+	fn getComponentID(&self) -> FLAG_Components;
+	fn getAttachedEntityID(&self) -> usize;
+	fn getAsAny(&self) -> &Any;
 	fn getAsAny_mut(&mut self) -> &mut Any;
 }
 

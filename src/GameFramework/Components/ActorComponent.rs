@@ -19,19 +19,19 @@ impl ActorComponent {
 }
 
 impl Component for ActorComponent {
-    fn Name(&self) -> &'static str {
+    fn name(&self) -> &'static str {
         "Actor Component"
     }
-    fn GetGUID(&self) -> usize {
+    fn getGUID(&self) -> usize {
         self.GUID
     }
-    fn GetComponentID(&self) -> FLAG_Components {
+    fn getComponentID(&self) -> FLAG_Components {
         COMPONENT_FLAG_ACTOR
     }
-    fn GetAttachedEntityID(&self) -> usize {
+    fn getAttachedEntityID(&self) -> usize {
         self.AttachedEntityID
     }
-    fn GetAsAny(&self) -> &Any {
+    fn getAsAny(&self) -> &Any {
         self
     }
     fn getAsAny_mut(&mut self) -> &mut Any {
