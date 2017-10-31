@@ -6,3 +6,5 @@ authors = ["unite"]
 [dependencies]
 lua = "*"
 num = "*"
+time = "*"
+bitflags = "*"

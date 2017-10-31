@@ -1,7 +1,7 @@
 {
     // See https://go.microsoft.com/fwlink/?LinkId=733558
     // for the documentation about the tasks.json format
-    "version": "2.0.0",
+    "version": "2.0.0",            
     "tasks": [
         {
             "type": "process",
@@ -9,6 +9,19 @@
             "command": "cargo",
             "args": [
                 "build",
+                "--target=i686-pc-windows-msvc"
+            ],
+            "problemMatcher": [
+                "$rustc"
+            ],
+            "group": "build"
+        },
+        {
+            "type": "process",
+            "label": "cargo build & run win32",
+            "command": "cargo",
+            "args": [
+                "run",
                 "--target=i686-pc-windows-msvc"
             ],
             "problemMatcher": [
@@ -31,8 +44,10 @@
         {
             "type": "shell",
             "label": "cargo build & run nix",
-            "command": "/home/unite/.cargo/bin/cargo",
+            "command": "env",
             "args": [
+                "RUST_BACKTRACE=1",
+                "/home/unite/.cargo/bin/cargo",
                 "run"
             ],
             "problemMatcher": [

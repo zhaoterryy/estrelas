@@ -1,6 +1,6 @@
 use super::Math::Vector2::*;
 
-#[derive(PartialEq, Clone, Copy)]
+#[derive(Default, PartialEq, Clone, Copy)]
 pub struct Transform2D {
     pub Position: Vector2,
     pub Rotation: Vector2,

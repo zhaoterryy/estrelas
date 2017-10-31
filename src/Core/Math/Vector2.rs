@@ -7,7 +7,7 @@ pub const ZERO_VECTOR: Vector2 = Vector2 { x: 0.0, y: 0.0 };
 pub const UP_VECTOR: Vector2 = Vector2 { x: 0.0, y: 1.0 };
 pub const RIGHT_VECTOR: Vector2 = Vector2 { x: 1.0, y: 0.0 };
 
-#[derive(PartialEq, Copy, Clone)]
+#[derive(Default, PartialEq, Copy, Clone)]
 pub struct Vector2 {
     pub x: f32,
     pub y: f32
