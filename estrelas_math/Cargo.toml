@@ -1,0 +1,7 @@
+[package]
+name = "estrelas_math"
+version = "0.1.0"
+authors = ["unite"]
+
+[dependencies]
+num = "*"

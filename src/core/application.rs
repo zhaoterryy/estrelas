@@ -1,15 +1,15 @@
 extern crate time;
 
 use self::time::precise_time_ns;
-use GameFramework::Systems::WorldSystem::*;
+use super::world_system::WorldSystem;
 
-pub(crate) fn Init() {
-    let mut wSystems: Vec<WorldSystem> = Vec::new();
-    wSystems.push(WorldSystem::test());
-    Mainloop(wSystems);
+pub(crate) fn init() {
+    let mut w_systems: Vec<WorldSystem> = Vec::new();
+    w_systems.push(WorldSystem::new("world0"));
+    main_loop(w_systems);
 }
 
-fn Mainloop(mut wSystems: Vec<WorldSystem>) {
+fn main_loop(mut w_systems: Vec<WorldSystem>) {
     const MS_PER_UPDATE: u64 = 16;
     let mut previous = precise_time_ns();
     let mut delay = 0u64;
@@ -22,13 +22,13 @@ fn Mainloop(mut wSystems: Vec<WorldSystem>) {
 
         while delay >= MS_PER_UPDATE {
             delay -= MS_PER_UPDATE;
-            for w in wSystems.iter_mut() {
-                Update(&mut *w);
+            for w in w_systems.iter_mut() {
+                update(&mut *w);
             }
         }
     }
 }
 
-fn Update(ws: &mut WorldSystem) {
-    ws.Update();
+fn update(ws: &mut WorldSystem) {
+    ws.update();
 }

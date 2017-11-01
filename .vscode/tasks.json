@@ -18,11 +18,10 @@
         },
         {
             "type": "process",
-            "label": "cargo build & run win32",
+            "label": "cargo build & run win",
             "command": "cargo",
             "args": [
-                "run",
-                "--target=i686-pc-windows-msvc"
+                "run"
             ],
             "problemMatcher": [
                 "$rustc"

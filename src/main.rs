@@ -1,13 +1,9 @@
 extern crate lua;
+extern crate estrelas_math;
 #[macro_use]
 extern crate bitflags;
 #[allow(dead_code)]
-#[allow(non_snake_case)]
-mod Core;
-#[allow(non_snake_case)]
-mod System;
-#[allow(non_snake_case)]
-mod GameFramework;
+mod core;
 
 #[allow(unused_must_use)]
 fn main() {
@@ -15,5 +11,5 @@ fn main() {
     state.open_libs();
     state.do_string("print('hello world!')");
 
-    System::Application::Init();
+    core::application::init();
 }

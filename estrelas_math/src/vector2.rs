@@ -21,11 +21,11 @@ impl Vector2 {
         }
     }
 
-    pub fn UnitVector(&self) -> Self {
-        use super::CommonMath::*;
+    pub fn unit_vector(&self) -> Self {
+        use common::invsqrt;
 
-        let sqrSum = self.x*self.x + self.y*self.y;
-        let scale = invsqrt(sqrSum);
+        let sqr_sum = self.x*self.x + self.y*self.y;
+        let scale = invsqrt(sqr_sum);
         Vector2 { 
             x: self.x * scale,
             y: self.y * scale
@@ -70,14 +70,14 @@ impl fmt::Display for Vector2 {
     }
 }
 
-pub fn DotProduct(lhs: Vector2, rhs: Vector2) -> f32 {
+pub fn dot_product(lhs: Vector2, rhs: Vector2) -> f32 {
     lhs.x * rhs.x + lhs.y * rhs.y
 }
 
-pub fn CrossProduct(lhs: Vector2, rhs: Vector2) -> f32 {
+pub fn cross_product(lhs: Vector2, rhs: Vector2) -> f32 {
     lhs.x * rhs.x + lhs.y * rhs.y
 }
 
-pub fn Distance(lhs: Vector2, rhs: Vector2) -> f32 {
+pub fn distance(lhs: Vector2, rhs: Vector2) -> f32 {
     (rhs.x - lhs.x).sqrt() + (rhs.y - lhs.y).sqrt()
 }
