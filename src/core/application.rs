@@ -6,6 +6,7 @@ use super::world_system::WorldSystem;
 pub(crate) fn init() {
     let mut w_systems: Vec<WorldSystem> = Vec::new();
     w_systems.push(WorldSystem::new("world0"));
+    
     main_loop(w_systems);
 }
 

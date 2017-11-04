@@ -1,27 +1,36 @@
 use super::*;
 use std::collections::HashMap;
+use std::any::TypeId;
 
-pub struct DataManager {
+pub struct DataManager<'a> {
     components: HashMap<usize, Box<Component>>,
     components_type_to_guid: HashMap<u64, Vec<usize>>,
     components_entity_to_guid: HashMap<usize, Vec<usize>>,
+    typeid_to_new_component_fn: HashMap<TypeId, Box<Fn(usize, usize) -> Box<Component> + 'a>>,
     entities: HashMap<usize, Box<Entity>>,
     entity_ids: Vec<usize>,
     component_counter: usize,
     entity_counter: usize
 }
 
-impl DataManager {
+impl<'a> DataManager<'a> {
     pub fn new() -> Self {
         Self {
             components: HashMap::new(),
             components_type_to_guid: HashMap::new(),
             components_entity_to_guid: HashMap::new(),
+            typeid_to_new_component_fn: HashMap::new(),
             entities: HashMap::new(),
             entity_ids: Vec::new(),
             component_counter: 0,
             entity_counter: 0
         }
+    }
+
+    pub fn register_component<F>(&mut self, type_id: TypeId, func: F) where
+        F: Fn(usize, usize) -> Box<Component> + 'a
+    {
+        self.typeid_to_new_component_fn.insert(type_id, Box::new(func));
     }
 
     pub fn new_entity(&mut self, name: &'static str, components: u64) {
@@ -102,4 +111,5 @@ impl DataManager {
     pub fn get_all_components(&self) -> &HashMap<usize, Box<Component>> {
         &self.components
     }
+
 }

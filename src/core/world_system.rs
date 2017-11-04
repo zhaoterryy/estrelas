@@ -1,10 +1,10 @@
 use super::engine_types::game_framework::*;
 
-pub struct WorldSystem {
-    world: World
+pub struct WorldSystem<'a> {
+    world: World<'a>
 }
 
-impl WorldSystem {
+impl<'a> WorldSystem<'a> {
     pub fn new(name: &'static str) -> Self {
         WorldSystem {
             world: World { 

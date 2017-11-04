@@ -1,8 +1,8 @@
 use super::{DataManager, System};
 
 // This struct provides the world context to systems
-pub struct World {
+pub struct World<'a> {
     pub name: String,
     pub systems: Vec<Box<System>>,
-    pub dm: DataManager
+    pub dm: DataManager<'a>
 }
